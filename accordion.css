@@ -1,0 +1,45 @@
+button.accordion {
+  width: 100%;
+  height: 20%;
+  font-size: 255%;
+  flex: 30%;
+
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: background-color .5s;
+  /* background color will transition in a fade when hovered over */
+}
+
+button.accordion:hover {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  /* hidden by default */
+  max-height: 0px; /* hides element */
+  overflow: hidden; /* hides text on element*/
+  transition: max-height .2s ease-in-out; /* animated scrolling */
+}
+
+
+.accordion_card_container { /* covers area that accordion content flip card is on*/
+  flex: 30%;
+  width: auto;
+  height: 300px;
+}
+
+.accordion_flip_card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d; /* allows for card_back to exist behind card_front */
+  transition: 0.5s ease;
+}
+
+.accordion_card_container:hover .accordion_flip_card{
+  transform: rotateY(180deg);
+}

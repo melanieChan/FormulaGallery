@@ -1,0 +1,30 @@
+.carousel_content {
+  display: none;
+}
+
+/* buttons to move left/right */
+.carousel_button {
+  font-size: 40px;
+  color: #505050; /* dark grey*/
+  cursor:pointer;
+  border: none;
+  background: none;
+
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  padding: 16px;
+
+  /* user can't highlight text */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+}
+
+.carousel_button:hover {
+  color: grey;
+  font-weight: bold;
+}

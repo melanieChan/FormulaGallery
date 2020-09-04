@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <!-- MathJax - use to read & display latex -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Google jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <!-- Bootstrap CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- css -->
+  <link rel="stylesheet" type = "text/css" href = "cardstyle.css">
+  <link rel="stylesheet" type = "text/css" href="accordion.css">
+  <link rel="stylesheet" type = "text/css" href="slideshow.css">
+  <link rel="stylesheet" type = "text/css" href="filter.css">
+
+  <head>
+    <meta charset="utf-8">
+    <title> Formula Gallery </title>
+  </head>
+
+  <body>
+
+    <div class="filter_container">
+      <div class="filter" id="all">
+        All
+      </div>
+      <div class="filter" id="derivatives">
+        Derivatives
+      </div>
+      <div class="filter" id="convergence-divergence">
+        Convergence
+      </div>
+      <div class="filter" id="trig-id">
+        Trig Identity
+      </div>
+      <div class="filter" id="maclaurin">
+        Maclaurin
+      </div>
+      <div class="filter" id="values">
+        Values
+      </div>
+    </div>
+
+    <div class="main_container">  <!-- holding all cards -->
+
+      <!-- card for d/dx arctan -->
+      <div class="card_container derivatives"> <!-- takes up same area of flip card -->
+      <!-- if mouse hovers over container, card will flip -->
+        <div class="flip_card"> <!-- part being flipped -->
+          <div class="card_front">
+            <h1>$$ \frac{d}{dx}arctan\left(x\right) $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> <a href="https://youtu.be/G7WyEp8gHs0">$$ \frac{1}{x^2+1} $$</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for p-series test -->
+      <div class="card_container convergence-divergence">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ \sum _{n=1}^{\infty }\:\frac{1}{n^p} $$</h1>
+          </div>
+          <div class="card_back carousel_container">
+            <div class="carousel_content p-series"> <!-- converge if p > 1 -->
+              <a data-toggle="collapse" href="#collapseExample"><h1>p &gt; 1</h1></a>
+              <h1 class="collapse" id="collapseExample"> <a href="https://youtu.be/4WChwIGKdaA">converge</a></h1>
+            </div>
+
+            <div class="carousel_content p-series"> <!-- diverges if p <= 1 -->
+              <a data-toggle="collapse" href="#collapseExample"><h1>$$ p\le1 $$</h1></a>
+              <h1 class="collapse" id="collapseExample"> <a href="https://youtu.be/av947KCWf2U">diverges</a></h1>
+            </div>
+
+            <button class="carousel_button previous" onclick="changeSlide(-1, 0)"> < </button>
+            <button class="carousel_button next" onclick="changeSlide(1, 0)"> > </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- card for ratio test -->
+      <div class="card_container convergence-divergence"> <!-- 2nd class is for filtering into category -->
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ \lim_{n\to \infty \:}\left(\frac{\left|a_{n+1}\right|}{\left|a_n\right|}\right) $$</h1>
+          </div>
+          <div class="card_back carousel_container">
+            <div class="carousel_content ratio-test"> <!-- converge if < 1-->
+              <a data-toggle="collapse" href="#collapseExample"><h1> &lt; 1</h1></a>
+              <h1 class="collapse" id="collapseExample"> <a href="https://youtu.be/av947KCWf2U">converge</a></h1>
+            </div>
+
+            <div class="carousel_content ratio-test"> <!-- diverges if > 1-->
+              <a data-toggle="collapse" href="#collapseExample"><h1> &gt; 1</h1></a>
+              <h1 class="collapse" id="collapseExample"> <a href="https://youtu.be/av947KCWf2U">diverge</a></h1>
+            </div>
+
+            <div class="carousel_content ratio-test"> <!-- inconclusive if == 1-->
+              <a data-toggle="collapse" href="#collapseExample"><h1> = 1</h1></a>
+              <h1 class="collapse" id="collapseExample"> inconclusive</h1>
+            </div>
+
+            <button class="carousel_button previous" onclick="changeSlide(-1, 1)"> < </button>
+            <button class="carousel_button next" onclick="changeSlide(1, 1)"> > </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- card for nth term divergence test -->
+      <div class="card_container convergence-divergence">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ \lim _{n\to \:\infty}a_n $$</h1>
+          </div>
+          <div class="card_back carousel_container">
+            <div class="carousel_content nth-term"> <!-- case divergence -->
+              <a data-toggle="collapse" href="#collapseExample"><h1> $$ \neq 0 $$ </h1></a>
+              <h1 class="collapse" id="collapseExample"> diverges </h1>
+            </div>
+
+            <div class="carousel_content nth-term"> <!-- case inconclusive -->
+              <a data-toggle="collapse" href="#collapseExample"><h1> $$ =0 $$ </h1></a>
+              <h1 class="collapse" id="collapseExample"> inconclusive </h1>
+            </div>
+
+            <button class="carousel_button previous" onclick="changeSlide(-1, 2)"> < </button>
+            <button class="carousel_button next" onclick="changeSlide(1, 2)"> > </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- card for ln(0)=1 -->
+      <div class="card_container values">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ \ln\left(1\right) $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> 0 </h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for 0!=1 -->
+      <div class="card_container values">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ 0! $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> 1 </h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for tan^2 + 1 = sec^2 test -->
+      <div class="card_container trig-id">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ \tan ^2\left(x\right)+1 $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> <a href="https://socratic.org/questions/how-do-you-prove-1-tan-2-x-sec-2-x-1">$$ sec^2\left(x\right) $$</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for power reducing formula - sin^2 -->
+      <div class="card_container trig-id">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ sin^2\left(x\right) $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> $$ \frac{1-cos\left(2x\right)}{2} $$</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for power reducing formula - cos^2 -->
+      <div class="card_container trig-id">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ cos^2\left(x\right) $$</h1>
+          </div>
+          <div class="card_back">
+            <h1> $$ \frac{1+cos\left(2x\right)}{2} $$</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for Maclaurin series of e^x-->
+      <div class="card_container maclaurin">
+        <div class="flip_card">
+          <div class="card_front">
+            <h1>$$ e^{x} $$</h1>
+          </div>
+          <div class="card_back">
+            <h1><a href="https://youtu.be/JYQqml4-4q4">$$ \sum_{n=0}^{\infty}\frac{x^{n}}{n!} $$</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- card for s_inf
+      <div class="card_container">
+        <a data-toggle="collapse" href="#collapseExample"><h2>if <br></br>| r | &lt; 1 </h2></a>
+        <div class="flip_card" class="collapse" id="collapseExample">
+          <div class="card_front">
+            <h1>$$ S_{\infty \:} $$</h1>
+          </div>
+          <div class="card_back">
+
+            <h1 ><a href='https://youtu.be/wqnpSzEzq1w'> $$\frac{a}{1-r}$$</a></h1>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- card for geometric ratio convergence - 1st test, doesn't work -->
+      <!-- card will always be flipped to back, whether or not hover is over button or flip card
+      <div class="card_container">
+        <button class="accordion">
+          | r | &lt; 1
+        </button>
+
+
+        <div class="accordion-content flip_card" >
+          <div class="card_front">
+            <h1>$$ S_{\infty \:} $$</h1>
+          </div>
+          <div class="card_back">
+
+            <h1 ><a href='https://youtu.be/wqnpSzEzq1w'> $$\frac{a}{1-r}$$</a></h1>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- card for geometric ratio convergence -->
+      <div class="card_container convergence-divergence">
+        <button class="accordion">
+          | r | &lt; 1    <!-- &lt : '<' -->
+        </button>
+
+        <div class="accordion-content accordion_card_container" > <!-- accordion content is flip card-->
+          <div class="accordion_flip_card">
+            <div class="card_front">
+              <h1>$$ S_{\infty \:} $$</h1> <!-- $$ : Latex indicator -->
+            </div>
+            <div class="card_back">
+              <h1 ><a href='https://youtu.be/wqnpSzEzq1w'> $$\frac{a}{1-r}$$</a></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- js -->
+    <script src=script.js></script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

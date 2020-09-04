@@ -1,0 +1,39 @@
+.filter_container {
+  display: block;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.filter {
+  width: 16%;
+  text-align: center;
+  float: left;  /* without this, div elements would be laid out vertically */
+  cursor: pointer;
+}
+
+.filter:hover {
+  font-weight: bold;
+}
+
+.main_container {
+
+}
+
+.card_container {
+  transition: all 0.4s ease-in-out;
+}
+
+.hide { /* what it will look like as it hides*/
+  transform: scale(0);
+   /* hidden items will not take up space */
+  width:0;
+
+  transition: all 0.4s ease-in-out;
+}
+.elimate-space { /* without this, hidden div elements will take up space */
+
+  flex:0;
+  overflow: hidden;
+}
