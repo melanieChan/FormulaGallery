@@ -1,6 +1,8 @@
 # FormulaGallery
 An interactive Calculus formula sheet.
 
+![](https://i.imgur.com/QcdKfwe.gif)
+
 <img src="https://i.imgur.com/gNjFEu2.png" width=500>
 
 
